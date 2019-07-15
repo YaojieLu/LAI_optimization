@@ -2,5 +2,8 @@
 import multiprocessing as mp
 import numpy as np
 
-pool = mp.Pool(4)
-out1, out2, out3 = zip(*pool.map(calc_stuff, range(0, 10 * offset, offset)))
+pool = mp.Pool()
+param_cores = np.array_split(param_values, 10, axis = 0)
+param_augmented = [(p, VPD, tmax, sp) for p in param_cores]
+Y_pooled = pool.map(evaluate_model, param_augmented)
+Y = np.vstack(Y_pooled)
