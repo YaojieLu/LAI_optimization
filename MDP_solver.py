@@ -2,8 +2,10 @@
 import numpy as np
 import pandas as pd
 from scipy import interpolate
+import multiprocessing as mp
 
-def value_iteration(mdp, gap_L = 5, gap_s = 500, utility = None, epsilon = 100, time_max = 70):
+def value_iteration(mdp, gap_L = 5, gap_s = 500,
+                    epsilon = 100, time_max = 70, utility = None):
     """ Solving an MDP by value iteration """
     
     L_sp, s_sp, L_max, s_max = mdp.L_space, mdp.s_space, mdp.L_max, mdp.s_max
