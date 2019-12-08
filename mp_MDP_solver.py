@@ -98,8 +98,8 @@ def value_iteration(mdp, gap_L = 5, gap_s = 500,
             print(L)
             U_td_L = []
             f = lambda s: dc_dL_u(L, s)
-            pool = Pool()
-            u = pool.map(f, s_sp_td)                
+            pool = Pool(1)
+            u = pool.map(f, (s_sp_td, ))
             U_td_L.append(u)
             
             # update delta for utility with given L

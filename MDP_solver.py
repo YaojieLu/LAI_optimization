@@ -204,6 +204,7 @@ def policy_extraction(mdp, utility, gap_L = 5, gap_s = 500):
     
     # loop over L and s
     for L in L_sp_td:
+        print(L)
         pi_L = {}
         for s in s_sp_td:
             dL_opt = dc_dL(L, s)

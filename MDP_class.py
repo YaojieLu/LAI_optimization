@@ -16,7 +16,11 @@ def gsmax_sf(dL, L, s, slope, dt):
 
 def Anf(dL, gs, L, Amax, gs50, mL, cL, dt):
     """ Whole-plant photosynthesis rate """
-    A = (L+dL)*Amax*gs/(gs+gs50)*dt
+    #A = (L+dL)*Amax*gs/(gs+gs50)*dt
+    # test code: self-shading
+    L_effective = (L+dL)**2/(L+dL+3)
+    A = L_effective*Amax*gs/(gs+gs50)*dt
+    # test code over
     """ Leaf maintenance cost and leaf construction cost """
     C = mL*(L+dL)*dt+cL*max(0, dL)
     return A - C

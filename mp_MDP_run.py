@@ -7,7 +7,7 @@ from multiprocessing import Pool
 import timeit
 
 # mdp class
-mdp = MDP(gamma = 0.9, dL_unit = 0.2, gs_unit = 0.02, L_max = 1.0,
+mdp = MDP(gamma = 0.9, dL_unit = 0.2, gs_unit = 0.02, L_max = 2,
           mL = 2, cL = 10, mean_rd = 0.2)
 
 # value iteration

@@ -1,11 +1,11 @@
 
 import pandas as pd
 from MDP_class import MDP
-from MDP_solver_dc import value_iteration, policy_extraction
+from MDP_solver import value_iteration, policy_extraction
 import timeit
 
 # mdp class
-mdp = MDP(gamma = 0.9, dL_unit = 0.1, gs_unit = 0.02, L_max = 10.0,
+mdp = MDP(gamma = 0.9, dL_unit = 0.2, gs_unit = 0.02, L_max = 10.0,
           mL = 2, cL = 10, mean_rd = 0.2)
 
 ## read utility from csv
@@ -15,7 +15,7 @@ mdp = MDP(gamma = 0.9, dL_unit = 0.1, gs_unit = 0.02, L_max = 10.0,
 # value iteration
 # gap_s = 1000
 start = timeit.default_timer()
-utility1000 = value_iteration(mdp, gap_L = 5, gap_s = 1000, epsilon = 100, time_max = 70)
+utility1000 = value_iteration(mdp, gap_L = 5, gap_s = 1000, epsilon = 100, time_max = 20)
 stop = timeit.default_timer()
 print('Time to calculate utility: ', round((stop - start), 2))
 # gap_s = 500
