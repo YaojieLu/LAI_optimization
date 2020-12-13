@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 
 # read csv
 col_names = ['L_p', 's', 'dL', 'gs', 'utility']
-df = pd.read_csv('Results/MDP_policy.csv', sep='\t', header=0, names=col_names)
+df = pd.read_csv('../Results/MDP_policy.csv', sep='\t', header=0, names=col_names)
 
 # parameters
 Amax, gs50, dt = 15, 0.034, 1
@@ -32,5 +32,6 @@ ax.tick_params(labelsize=25)
 ax.legend(labels=L_ps, loc='lower right', title='aaaaaaaaaaaaaaaaaa',
           fontsize='xx-large', title_fontsize='xx-large', markerscale=5, frameon=False)
 plt.subplots_adjust(wspace=0.3)
-plt.savefig('Figures/Figure ' + ys + '.png', bbox_inches = 'tight')
+plt.show()
+plt.savefig('../Figures/Figure ' + ys + '.png', bbox_inches = 'tight')
 
